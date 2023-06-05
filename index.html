@@ -12,12 +12,227 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <style>
+      .fragment.bg-red {
+        background: inherit;
+      }
+      .fragment.bg-red.visible {
+        background: red !important;
+      }
+    </style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+          <h2 class="r-fit-text">Hotwire 🌶️</h2>
+          <h2 class="r-fit-text">Reactive monoliths without (too much) JavaScript</h2>
+        </section>
+        <section>
+          <img src="/images/me.png" style="height: 150px; width: 150px; border-radius: 50%" />
+          <p> Andrea Rocca | Head of engineering @ Wellio </p>
+          <p> 🐥 <a href="https://twitter.com/ilrock__" > @ilrock__ </a></p>
+        </section>
+        <section>
+          <h2 class="r-fit-text">Quick disclaimer ⚠️</h2>
+          
+          <aside class="notes">
+            <p> - Strong opinions </p>
+            <p> - Hot takes </p>
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h2 class="r-fit-text"> What is it? </h2>
+          </section>
+          <section>
+            <p>
+              A cool acronym that stands for
+              <span class="fragment">
+                <span class="fragment highlight-red">H</span>TML
+              </span>
+              <span class="fragment">
+                <span class="fragment highlight-red">O</span>ver
+              </span>
+              <span class="fragment">
+                <span class="fragment highlight-red">T</span>he
+              </span>
+              <span class="fragment">
+                <span class="fragment highlight-red">Wire</span>
+              </span>
+            </p>
+          </section>
+          <section>
+            <p>A suite of tools to bring reactivity to monolith web apps</p>
+          </section>
+          <section>
+            <p>Framework-agnostic</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class="r-fit-text"> Why should you care? </h2>
+          </section>
+          <section>
+            Keeps small teams nimble and productive
+          </section>
+          <section>
+            <p> SPAs were a bad idea anyway</p>
+            <p><span class="fragment">React</span></p>
+            <p><span class="fragment">Redux</span></p>
+            <p><span class="fragment">Hooks</span></p>
+            <p><span class="fragment">Serverless</span></p>
+            <p><span class="fragment">😵</span></p>
+          </section>
+          <section>
+            Why would you send JSON over the wire if you can send directly HTML?
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class="r-fit-text"> How can it help you? </h2>
+          </section>
+          <section>
+            Two major technologies
+          </section>
+          <section>
+            Turbo
+          </section>
+          <section>
+            Stimulus
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class="r-fit-text"> Let's talk about Turbo 🚀 </h2>
+          </section>
+          <section>
+            <p> Natural evolution of Turbolinks </p>
+          </section>
+          <section>
+            <p> Out of the box performance </p>
+          </section>
+          <section>
+            <p> Three major components </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class="r-fit-text">Turbo Frames</h2>
+
+            <aside class="notes">
+              <ul>
+                <li> Useful to decompose your app UI in atomic containers </li>
+                <li> Any links and forms within the frame will only reload the frame </li>
+                <li> Links and forms outside of a frame can reload it by referencing it via data properties </li>
+                <li> Can be lazy-loaded to improve page rendering speed </li>
+                <li> Great way to update a single "section" of your app UI </li>
+                <li> Common use-cases: table filtering and sorting, multi-step forms </li>
+              </ul>
+            </aside>
+          </section>
+          <section data-auto-animate>
+            <div style="display: flex; position: relative;">
+              <div data-id="page" style="width: 50%; display: flex; flex-direction: column; gap: 15px; background: white; padding: 15px;">
+                <div style="height: 30px; background: lightblue; border-radius: 5px;">
+                </div>
+                <div style="display: flex; gap: 15px;">
+                  <div class="fragment custom bg-red" style="background: lightblue; height: 100px; width: 100px; border-radius: 5px;">
+                  </div>
+                  <div style="background: lightblue; height: 100px; flex-grow: 1; flex: 1; border-radius: 5px;">
+                  </div>
+                </div>
+              </div>
+              <div class="fragment" data-id="box" style="background: green; height: 100px; width: 100px; border-radius: 5px; position: absolute; top: 0; right: 0;">
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <div style="display: flex; position: relative;">
+              <div data-id="page" style="width: 50%; display: flex; flex-direction: column; gap: 15px; background: white; padding: 15px;">
+                <div style="height: 30px; background: lightblue; border-radius: 5px;">
+                </div>
+                <div style="display: flex; gap: 15px;">
+                  <div style="background: red; height: 100px; width: 100px; border-radius: 5px;">
+                  </div>
+                  <div style="background: lightblue; height: 100px; flex-grow: 1; flex: 1; border-radius: 5px;">
+                  </div>
+                </div>
+              </div>
+              <div data-id="box" style="background: green; height: 100px; width: 100px; border-radius: 5px; position: absolute; bottom: 15px; left: 15px;">
+              </div>
+            </div>
+          </section>
+          <section>
+            <a href="https://github.com/ilrock/thirty_days_of_hotwire/issues" target="_blank">
+              👀 Example: GitHub Repo 👀
+            </a>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class="r-fit-text">Turbo Streams</h2>
+
+            <aside class="notes">
+              <ul>
+                <li> Somewhat similar to turbo frames, but they can be used to update multiple parts of your UI at once </li>
+                <li> They can perform many actions out of the box (replace, update, prepend, append and remove) </li>
+                <li> Common use-cases - remove a record from a table and update the total number of records </li>
+                <li> They work together with broadcasts (coming up) to help with real-time feautures </li>
+              </ul>
+            </aside>
+          </section>
+          <section data-auto-animate>
+            <div style="display: flex; position: relative;">
+              <div data-id="page" style="width: 50%; display: flex; flex-direction: column; gap: 15px; background: white; padding: 15px;">
+                <div style="display: flex; gap: 15px;">
+                  <div class="fragment custom bg-red" style="height: 30px; background: lightblue; border-radius: 5px; width: 30px;">  
+                  </div>
+                  <div style="height: 30px; background: lightblue; border-radius: 5px; flex-grow: 1;">
+                  </div>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                  <div class="fragment custom bg-red" style="background: lightblue; height: 100px; width: 100px; border-radius: 5px;">
+                  </div>
+                  <div style="background: lightblue; height: 100px; flex-grow: 1; flex: 1; border-radius: 5px;">
+                  </div>
+                </div>
+              </div>
+              <div class="fragment" data-id="box" style="background: green; height: 100px; width: 100px; border-radius: 5px; position: absolute; top: 0; right: 0;">
+              </div>
+
+              <div class="fragment" data-id="small_box" style="background: green; height: 30px; width: 30px; border-radius: 5px; position: absolute; top: 0px; right: 150px;">
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <div style="display: flex; position: relative;">
+              <div data-id="page" style="width: 50%; display: flex; flex-direction: column; gap: 15px; background: white; padding: 15px;">
+                <div style="display: flex; gap: 15px;">
+                  <div style="height: 30px; background: red; border-radius: 5px; width: 30px;">
+                  </div>
+                  <div style="height: 30px; background: lightblue; border-radius: 5px; flex-grow: 1;">
+                  </div>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                  <div style="background: red; height: 100px; width: 100px; border-radius: 5px;">
+                  </div>
+                  <div style="background: lightblue; height: 100px; flex-grow: 1; flex: 1; border-radius: 5px;">
+                  </div>
+                </div>
+              </div>
+              <div data-id="box" style="background: green; height: 100px; width: 100px; border-radius: 5px; position: absolute; bottom: 15px; left: 15px;">
+              </div>
+
+              <div data-id="small_box" style="background: green; height: 30px; width: 30px; border-radius: 5px; position: absolute; top: 15px; left: 15px;">
+              </div>
+            </div>
+          </section>
+          <section>
+            <!-- Real life Example, maybe GH -->
+          </section>
+        </section>
 			</div>
 		</div>
 

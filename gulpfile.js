@@ -277,6 +277,7 @@ gulp.task('package', gulp.series(() =>
             './dist/**',
             './lib/**',
             './images/**',
+            './videos/**',
             './plugin/**',
             './**/*.md'
         ],
